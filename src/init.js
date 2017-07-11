@@ -28,6 +28,62 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+
+    window['dancers'].push(dancer);
+
   });
+
+  $('.addPacMan').on('click', function(event) {
+
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+
+    // get the maker function for the kind of dancer we're supposed to make
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+
+    // make a dancer with a random position
+    // change instantiation pattern below ("new")
+    var dancer = new dancerMakerFunction(
+      $("body").height() * Math.random(),
+      $("body").width() * Math.random(),
+      Math.random() * 1000
+    );
+    $('body').append(dancer.$node2);
+
+    window['dancers'].push(dancer);
+
+  });
+
+  $('.addSpaceInvader').on('click', function(event) {
+
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+
+    // get the maker function for the kind of dancer we're supposed to make
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+
+    // make a dancer with a random position
+    // change instantiation pattern below ("new")
+    var dancer = new dancerMakerFunction(
+      $("body").height() * Math.random(),
+      $("body").width() * Math.random(),
+      Math.random() * 3000
+    );
+    $('body').append(dancer.$node3);
+
+    window['dancers'].push(dancer);
+
+  });
+
+
+  $('.lineUp').on('click', function(event) {
+
+    //iterate over window.dancers and apply lineUp method on each dancer
+    window.dancers.forEach(function(dancer) {
+      dancer.lineUp();
+    });
+
+  });
+
+
+
 });
 
