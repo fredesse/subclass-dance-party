@@ -23,8 +23,8 @@ $(document).ready(function() {
     // make a dancer with a random position
     // change instantiation pattern below ("new")
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
@@ -43,17 +43,18 @@ $(document).ready(function() {
     // make a dancer with a random position
     // change instantiation pattern below ("new")
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
       Math.random() * 1000
     );
     $('body').append(dancer.$node2);
 
     window['dancers'].push(dancer);
+    makeDancer.prototype.animateDiv();
 
   });
 
-  $('.addSpaceInvader').on('click', function(event) {
+  $('.addGhost').on('click', function(event) {
 
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
@@ -63,8 +64,8 @@ $(document).ready(function() {
     // make a dancer with a random position
     // change instantiation pattern below ("new")
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
       Math.random() * 3000
     );
     $('body').append(dancer.$node3);
@@ -77,12 +78,12 @@ $(document).ready(function() {
   $('.lineUp').on('click', function(event) {
 
     //iterate over window.dancers and apply lineUp method on each dancer
+    $('.pacman').stop(true);
     window.dancers.forEach(function(dancer) {
       dancer.lineUp();
     });
 
   });
-
 
 
 });

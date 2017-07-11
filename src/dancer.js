@@ -7,7 +7,7 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   // use jQuery to create an HTML <span> tag
   this.$node = $('<span class="dancer"></span>');
   this.$node2 = $('<span class="pacman"></span>');
-  this.$node3 = $('<img src="spaceinvader.png" class="space-invader"></img>');
+  this.$node3 = $('<img src="ghost' + this.randomNum() + '.png" class="ghost"></img>');
 
   this.step();
 
@@ -51,6 +51,27 @@ makeDancer.prototype.lineUp = function() {
 };
 
 
+makeDancer.prototype.makeNewPosition = function() {
+  var h = $(window).height() - 50;
+  var w = $(window).width() - 50;
+
+  var nh = Math.floor(Math.random() * h);
+  var nw = Math.floor(Math.random() * w);
+
+  return [nh, nw];
+};
+
+makeDancer.prototype.animateDiv = function() {
+  var newq = this.makeNewPosition();
+  $('.pacman').animate({ top: newq[0], left: newq[1] },
+    {duration: 5000,
+      step: function(){makeDancer.prototype.animateDiv();}
+    });
+};
+
+makeDancer.prototype.randomNum = function() {
+  return Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+};
 
 
 //  var makeDancer = function(top, left, timeBetweenSteps) {
