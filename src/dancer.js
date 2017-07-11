@@ -6,6 +6,8 @@ var makeDancer = function(top, left, timeBetweenSteps) {
 
   // use jQuery to create an HTML <span> tag
   this.$node = $('<span class="dancer"></span>');
+  this.$node2 = $('<span class="pacman"></span>');
+  this.$node3 = $('<img src="spaceinvader.png" class="space-invader"></img>');
 
   this.step();
 
@@ -26,16 +28,27 @@ makeDancer.prototype.step = function() {
 makeDancer.prototype.setPosition = function(top, left) {
   // Use css top and left properties to position our <span> tag
   // where it belongs on the page. See http://api.jquery.com/css/
-  //this.$node = $('<span class="dancer"></span>');
+
   var styleSettings = {
     top: top,
     left: left
   };
 
   this.$node.css(styleSettings);
+  this.$node2.css(styleSettings);
+  this.$node3.css(styleSettings);
 };
 
+//create a new lineup function
+makeDancer.prototype.lineUp = function() {
 
+  var styleSettings = {top: '35px'};
+
+  this.$node.css(styleSettings);
+  this.$node2.css(styleSettings);
+  this.$node3.css(styleSettings);
+
+};
 
 
 
