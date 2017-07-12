@@ -1,29 +1,48 @@
 body, html{
   height:100%;
 }
+body {
+  background: url(retro.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  font-family: 'Revalia', cursive;
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: #e107f9;
 }
-.title, .addDancerButton{
-  padding:5px 12px;
+
+.title{
   float:right;
+  margin-right: 10px;
+  color: #30ffff;
+}
+.addDancerButton,
+.addPacMan,
+.lineUp,
+.addGhost,
+.lineDance {
+  padding-top: 5px;
 }
 .topbar{
   height:32px;
   background-color: #555;
+  padding-top: 5px;
 }
-.title{
-  background-color: #777;
+.topbar a {
+  margin-left: 15px;
 }
+
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
-  position:absolute;
+  border: 7px solid #f9b8dd;
+  border-radius: 7px;
+  position: absolute;
 }
 .pacman{
   width: 0px;
@@ -38,48 +57,47 @@ body, a:link, a:visited, a:active{
   border-bottom-right-radius: 20px;
   color: yellow;
   position: absolute;
+  -webkit-animation: pacmen 0.4s infinite;
 }
 
-.space-invader{
-  background: url(spaceinvader.png);
-  background-size: 25px 18px;
-  position: absolute;
-  /*box-shadow:
-    0 0 0 1em red,
-    0 1em 0 1em red,
-    -2.5em 1.5em 0 .5em red,
-    2.5em 1.5em 0 .5em red,
-    -3em -3em 0 0 red,
-    3em -3em 0 0 red,
-    -2em -2em 0 0 red,
-    2em -2em 0 0 red,
-    -3em -1em 0 0 red,
-    -2em -1em 0 0 red,
-    2em -1em 0 0 red,
-    3em -1em 0 0 red,
-    -4em 0 0 0 red,
-    -3em 0 0 0 red,
-    3em 0 0 0 red,
-    4em 0 0 0 red,
-    -5em 1em 0 0 red,
-    -4em 1em 0 0 red,
-    4em 1em 0 0 red,
-    5em 1em 0 0 red,
-    -5em 2em 0 0 red,
-    5em 2em 0 0 red,
-    -5em 3em 0 0 red,
-    -3em 3em 0 0 red,
-    3em 3em 0 0 red,
-    5em 3em 0 0 red,
-    -2em 4em 0 0 red,
-    -1em 4em 0 0 red,
-    1em 4em 0 0 red,
-    2em 4em 0 0 red;
-
-  background: red;
-  width: 1em;
-  height: 1em;
-  overflow: hidden;
-  position: absolute;
-  margin: 50px 0 70px 65px;*/
+@-webkit-keyframes pacmen {
+  0%   { border-top-left-radius: 20px; border-bottom-right-radius: 20px; }
+  50%  { border-top-left-radius: 23px; border-bottom-right-radius: 23px; }
+  100% { border-top-left-radius: 20px; border-bottom-right-radius: 20px; }
 }
+
+.ghost {
+  position: absolute;
+}
+
+.ghostName {
+  color: transparent;
+  position: absolute;
+}
+
+p:hover {
+  color: #fff;
+  transition: all 0.3s ease;
+  transform: scale(1.5) rotate(360deg);
+  padding-top: 14px;
+}
+
+audio {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

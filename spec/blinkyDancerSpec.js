@@ -5,7 +5,7 @@ describe('blinkyDancer', function() {
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
-    blinkyDancer = makeBlinkyDancer(10, 20, timeBetweenSteps);
+    blinkyDancer = new makeBlinkyDancer(10, 20, timeBetweenSteps);
   });
 
   it('should have a jQuery $node object', function() {
@@ -32,3 +32,60 @@ describe('blinkyDancer', function() {
     });
   });
 });
+
+
+
+describe('Pac-Man', function() {
+
+  var blinkyDancer, clock;
+  var timeBetweenSteps = 100;
+
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+    blinkyDancer = new makeBlinkyDancer(10, 20, timeBetweenSteps);
+  });
+
+  it('output is strictly greater than 0', function() {
+    expect(makeDancer.prototype.randomNum(1, 4)).to.be.above(0);
+  });
+
+  it('output is strictly less than 5', function() {
+    expect(makeDancer.prototype.randomNum(1, 4)).to.be.below(5);
+  });
+
+
+  it('should have an animateDiv function', function() {
+    expect(makeDancer.prototype.animateDiv).to.be.an.instanceof(Object);
+  });
+});
+
+
+
+describe('Dancefloor', function() {
+
+  var blinkyDancer, clock;
+  var timeBetweenSteps = 100;
+
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+    blinkyDancer = new makeBlinkyDancer(10, 20, timeBetweenSteps);
+  });
+
+  it('should have an LineUp function', function() {
+    expect(makeDancer.prototype.lineUp).to.be.an.instanceof(Object);
+  });
+
+  it('should have an LineDance function', function() {
+    expect(makeDancer.prototype.lineDance).to.be.an.instanceof(Object);
+  });
+});
+
+
+
+
+
+
+
+
+
+

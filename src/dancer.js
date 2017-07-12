@@ -7,7 +7,7 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   // use jQuery to create an HTML <span> tag
   this.$node = $('<span class="dancer"></span>');
   this.$node2 = $('<span class="pacman"></span>');
-  this.$node3 = $('<img src="ghost' + this.randomNum() + '.png" class="ghost"></img>');
+  this.$node3 = $('<img src="ghost' + this.randomNum(1, 4) + '.png" class="ghost"><p class="ghostName">' + names[this.randomNum(1, names.length)] + '</p></img>');
 
   this.step();
 
@@ -17,7 +17,7 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   this.setPosition(top, left);
 };
 
-
+var names = ['Anjali', 'Ankit', 'Brian', 'Christine', 'David', 'Francis', 'Fredy', 'Garima', 'Harvey', 'Joe', 'Kevin Do Gyun Kim', 'Kevin Su', 'Landon', 'Lisa', 'Matt', 'Nicholas', 'Nick', 'Peter', 'Rick', 'Scott M', 'Scott S', 'Shaikat', 'Sonrisa', 'Tim'];
 // the basic dancer doesn't do anything interesting at all on each step,
 // it just schedules the next step
 makeDancer.prototype.step = function() {
@@ -44,9 +44,9 @@ makeDancer.prototype.lineUp = function() {
 
   var styleSettings = {top: '35px'};
 
-  this.$node.css(styleSettings);
-  this.$node2.css(styleSettings);
-  this.$node3.css(styleSettings);
+  this.$node.animate(styleSettings);
+  this.$node2.animate(styleSettings);
+  this.$node3.animate(styleSettings);
 
 };
 
@@ -69,11 +69,25 @@ makeDancer.prototype.animateDiv = function() {
     });
 };
 
-makeDancer.prototype.randomNum = function() {
-  return Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+makeDancer.prototype.randomNum = function(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 
+
+makeDancer.prototype.lineDance = function() {
+
+  var styleSettingsNode = {top: '50px'};
+  var styleSettingsNode2 = {top: '300px'};
+  var styleSettingsNode3 = {top: '550px'};
+
+  this.$node.animate(styleSettingsNode);
+  this.$node2.animate(styleSettingsNode2);
+  this.$node3.animate(styleSettingsNode3);
+
+};
 //  var makeDancer = function(top, left, timeBetweenSteps) {
 
 //   var dancer = {};

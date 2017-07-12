@@ -42,15 +42,16 @@ $(document).ready(function() {
 
     // make a dancer with a random position
     // change instantiation pattern below ("new")
-    var dancer = new dancerMakerFunction(
+    var pacman = new dancerMakerFunction(
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
-    $('body').append(dancer.$node2);
+    $('body').append(pacman.$node2);
 
-    window['dancers'].push(dancer);
+    window['dancers'].push(pacman);
     makeDancer.prototype.animateDiv();
+
 
   });
 
@@ -63,14 +64,14 @@ $(document).ready(function() {
 
     // make a dancer with a random position
     // change instantiation pattern below ("new")
-    var dancer = new dancerMakerFunction(
+    var ghost = new dancerMakerFunction(
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
       Math.random() * 3000
     );
-    $('body').append(dancer.$node3);
+    $('body').append(ghost.$node3);
 
-    window['dancers'].push(dancer);
+    window['dancers'].push(ghost);
 
   });
 
@@ -81,6 +82,17 @@ $(document).ready(function() {
     $('.pacman').stop(true);
     window.dancers.forEach(function(dancer) {
       dancer.lineUp();
+    });
+
+  });
+
+
+  $('.lineDance').on('click', function(event) {
+
+    //iterate over window.dancers and apply lineUp method on each dancer
+    $('.pacman').stop(true);
+    window.dancers.forEach(function(dancer) {
+      dancer.lineDance();
     });
 
   });
