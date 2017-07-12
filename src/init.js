@@ -89,7 +89,7 @@ $(document).ready(function() {
 
   $('.lineDance').on('click', function(event) {
 
-    //iterate over window.dancers and apply lineUp method on each dancer
+    //iterate over window.dancers and apply lineDance method on each dancer
     $('.pacman').stop(true);
     window.dancers.forEach(function(dancer) {
       dancer.lineDance();
